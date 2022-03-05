@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 INCLUDEPATH += /home/ubuntu/tools/ffmpeg_build/include/
+
 LIBS += -L/home/ubuntu/tools/ffmpeg_build/lib/ -lavcodec \
         -lavdevice \
         -lavfilter \
@@ -13,7 +14,13 @@ LIBS += -L/home/ubuntu/tools/ffmpeg_build/lib/ -lavcodec \
         -lswscale
 
 LIBS += -lSDL2
-LIBS += -lpthread
 
 SOURCES += \
-        main.cpp
+    csdlplayer.cpp \
+    main.cpp
+
+#HEADERS += \
+#    main.cpp.bk
+
+HEADERS += \
+    csdlplayer.h
