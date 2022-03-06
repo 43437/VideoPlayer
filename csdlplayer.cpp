@@ -103,6 +103,8 @@ void CSDLPlayer::Run()
     }
     int iRetThd = 0;
     SDL_WaitThread(hdRefreshThd, &iRetThd);
+
+    SDL_Quit();
     std::cout << "hdRefreshThd ret: " << iRetThd << std::endl;
 }
 
