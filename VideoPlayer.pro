@@ -16,11 +16,12 @@ LIBS += -L/home/ubuntu/tools/ffmpeg_build/lib/ -lavcodec \
 LIBS += -lSDL2
 
 SOURCES += \
+    crawdataplayer.cpp \
     csdlplayer.cpp \
+    cvideoplayer.cpp \
     main.cpp
 
-#HEADERS += \
-#    main.cpp.bk
-
 HEADERS += \
-    csdlplayer.h
+    crawdataplayer.h \
+    csdlplayer.h \
+    cvideoplayer.h

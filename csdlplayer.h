@@ -7,48 +7,33 @@ extern "C"{
 
 #include <string>
 
+#define REFRESH_EVENT  (SDL_USEREVENT + 1)
+
 class CSDLPlayer
 {
 public:
     CSDLPlayer();
-    void Play();
+    virtual void Play();
 
-private:
-    enum EFrameDataType
-    {
-        eFrameDataType_From = 0,
-        eFrameDataType_BGRA = eFrameDataType_From,
-        eFrameDataType_RGB24,
-        eFrameDataType_BGR24,
-        eFrameDataType_YUV420P,
-        eFrameDataType_To,
-    };
+protected:
+    virtual void Init();
+    virtual void InitSDL();
+    virtual void InitFrameData() = 0;
+    virtual void UpdateTexture(const unsigned char* pBuffer, int& iFrameDataPitch);
+    virtual void GetRenderData(unsigned char*& pBuffer, int& iFrameDataPitch) = 0;
+    static int RefreshTimer(void *param);
+    virtual void Run();
 
-private:
-    void Init();
-    void InitSDL();
-    void InitFrameData();
-    void UpdateTexture(const unsigned char* pBuffer);
-    void GetRenderData(unsigned char*& pBuffer);
-
-private:
+protected:
     SDL_Texture*    m_SDLTexture;
     SDL_Renderer*   m_SDLRenderer;
     SDL_Window*     m_Screen;
+    SDL_Rect        m_SDLRect;
     int             m_WindowW;
     int             m_WindowH;
     int             m_PixelW;
     int             m_PixelH;
     Uint32          m_Pixformat;
-    SDL_Rect        m_SDLRect;
-    unsigned char*  m_pBuffer;          //read data
-    unsigned char*  m_pBufferConvert;   //convert data, rgb24 & bgr24 need convert to 32bit
-    int             m_BufferPixelW;
-    std::string     m_VideoFileName;
-    FILE*           m_fp;
-    int             m_FrameDataSize;
-    int             m_FrameDataPitch;
-    EFrameDataType  m_eFrameDataType;
 };
 
 #endif // CSDLPLAYER_H
