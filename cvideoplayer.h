@@ -36,7 +36,6 @@ private:
     AVFrame         *m_pFrame, *m_pFrameYUV;
     AVPacket        *m_pPacket;
     SwsContext      *m_ConvertCtx;
-//    unsigned char   *out_buffer;
     int				m_iVideoIndex;
 };
 
