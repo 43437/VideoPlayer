@@ -24,6 +24,8 @@ SOURCES += \
     crawdataopenglplayer.cpp \
     crawdataplayer.cpp \
     csdlplayer.cpp \
+    cvideodecoder.cpp \
+    cvideoopenglplayer.cpp \
     cvideoplayer.cpp \
     main.cpp
 
@@ -32,6 +34,8 @@ HEADERS += \
     crawdataopenglplayer.h \
     crawdataplayer.h \
     csdlplayer.h \
+    cvideodecoder.h \
+    cvideoopenglplayer.h \
     cvideoplayer.h
 
 DISTFILES += \

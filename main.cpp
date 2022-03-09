@@ -2,6 +2,7 @@
 #include "crawdataplayer.h"
 #include "cvideoplayer.h"
 #include "crawdataopenglplayer.h"
+#include "cvideoopenglplayer.h"
 
 int main()
 {
@@ -11,8 +12,11 @@ int main()
 //    CVideoPlayer cp;
 //    cp.Play();
 
-    CRawDataOpenglPlayer cpr;
-    cpr.Play();
+//    CRawDataOpenglPlayer cpr;
+//    cpr.Play();
+
+    CVideoOpenglPlayer  cvop;
+    cvop.Play();
 
     return 0;
 }
